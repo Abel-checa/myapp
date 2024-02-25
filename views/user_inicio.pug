@@ -1,0 +1,36 @@
+- var productos = prod
+- var large = largo
+- var cont = contador
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+
+    include partials/header_user.pug
+    body
+        div
+            p=large
+            p Has visitado tu perfil un total de: 
+            p=cont
+            h1 Bienvenido 
+            h1=nombre
+            a(href="/add")
+                button(type="submit") Añadir
+
+        div 
+            if large > 0
+                for p in productos 
+                    div 
+                        img(src=p.portada, alt="")
+                        h3=p.nombre
+                        h4=p.precio
+            
+
+            else
+                h1 No hay ningun producto
+                a(href="/add")
+                    button(type="submit") Añadir
+
+    include partials/footer.pug

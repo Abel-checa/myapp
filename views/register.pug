@@ -1,0 +1,29 @@
+- var errors = errores 
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+
+        include partials/header.pug
+        h1 Register
+        form(action="/register", method="post")
+            if cuerpo 
+                input(type="text", name="nombre", placeholder="Usuario", value=cuerpo.nombre) 
+                input(type="text", name="password", placeholder="Contraseña") 
+                input(type="text", name="email", placeholder="email", value=cuerpo.email)
+                input(type="text", name="imagen", placeholder="imagen", value=cuerpo.imagen)
+                button(type="submit") Acceder
+            else
+                input(type="text", name="nombre", placeholder="Usuario", ) 
+                input(type="text", name="password", placeholder="Contraseña") 
+                input(type="text", name="email", placeholder="email")
+                input(type="text", name="imagen", placeholder="imagen")
+                button(type="submit") Acceder
+
+            if errors 
+                for error in errors
+                    p=error.msg
